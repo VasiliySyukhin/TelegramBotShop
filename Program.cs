@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
+using static Telegram_Bot_Project.Handlers.Handlers;
 
 namespace Telegram_Bot_Project
 {
@@ -19,8 +20,8 @@ namespace Telegram_Bot_Project
             var cts = new CancellationTokenSource();
 
             ReceiverOptions receiverOptions = new ReceiverOptions { AllowedUpdates = { } };
-            Bot.StartReceiving(Handlers.HandleUpdateAsync,
-                               Handlers.HandleErrorAsync,
+            Bot.StartReceiving(HandleUpdateAsync,
+                               HandleErrorAsync,
                                receiverOptions,
                                cts.Token);
 
